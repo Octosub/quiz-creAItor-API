@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.1.2"
 
+#OpenAI
 gem "ruby-openai"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
