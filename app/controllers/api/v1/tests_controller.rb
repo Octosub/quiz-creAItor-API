@@ -6,6 +6,12 @@ class Api::V1::TestsController < ApplicationController
     render json: @tests.order(created_at: :desc)
   end
 
+  def show
+    @test = Test.find(params[:id])
+
+    render json: @test
+  end
+
   def create
     @test = Test.new(test_params)
     if @test.save
