@@ -1,3 +1,5 @@
+require 'openai'
+
 class Api::V1::TestsController < ApplicationController
 
   def index
@@ -8,7 +10,9 @@ class Api::V1::TestsController < ApplicationController
 
   def show
     @test = Test.find(params[:id])
-
+    openai_client = OpenAI::Client.new(api_key: ENV.fetch("OPENAI_ACCESS_TOKEN"), default_engine: "ada")
+    response = openai_client.search(documents: ["White House", "hospital", "school"], query: "the president")
+    @test.challenges["challenge1"]["answer"] = response
     render json: @test
   end
 
