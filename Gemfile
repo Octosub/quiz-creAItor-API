@@ -8,7 +8,11 @@ gem "ruby-openai"
 #Faker
 gem 'faker'
 
+#Byebug
+gem 'pry-rails'
+
 gem 'dotenv'
+gem 'dotenv-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 
