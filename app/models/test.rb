@@ -37,11 +37,12 @@ class Test < ApplicationRecord
               }
             }
           }
+          Dont put any '\' or '\n' in the json object. The json object should be in one line.
           "}],
           temperature: 0.7,
       }
     )
 
-    self.challenges["challenge1"]["answer"] = response.dig("choices", 0, "message", "content")
+    self.challenges = response.dig("choices", 0, "message", "content")
   end
 end
