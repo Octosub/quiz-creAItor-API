@@ -21,34 +21,48 @@ counter = 0
   answer1 = Faker::Lorem.word
   answer2 = Faker::Lorem.word
   answer3 = Faker::Lorem.word
+  answer4 = Faker::Lorem.word
 
   Test.create(max_score: rand(100..200), time: rand(10000..20000), challenges: {
     challenge1: {
       question: Faker::Lorem.question,
       choices: {
-        a: answer1,
-        b: Faker::Lorem.word,
-        c: Faker::Lorem.word
+        choice1: Faker::Lorem.word,
+        choice3: answer1,
+        choice2: Faker::Lorem.word,
+        choice4: Faker::Lorem.word
       },
       answer: answer1
     },
     challenge2: {
       question: Faker::Lorem.question,
       choices: {
-        a: answer2,
-        b: Faker::Lorem.word,
-        c: Faker::Lorem.word
+        choice1: Faker::Lorem.word,
+        choice2: Faker::Lorem.word,
+        choice3: answer2,
+        choice4: Faker::Lorem.word
       },
       answer: answer2
     },
     challenge3: {
       question: Faker::Lorem.question,
       choices: {
-        a: answer3,
-        b: Faker::Lorem.word,
-        c: Faker::Lorem.word
+        choice1: Faker::Lorem.word,
+        choice2: answer3,
+        choice3: Faker::Lorem.word,
+        choice4: Faker::Lorem.word
       },
       answer: answer3
+    },
+    challenge4: {
+      question: Faker::Lorem.question,
+      choices: {
+        choice1: answer4,
+        choice2: Faker::Lorem.word,
+        choice3: Faker::Lorem.word,
+        choice4: Faker::Lorem.word
+      },
+      answer: answer4
     }
   })
 end

@@ -11,7 +11,7 @@ class Api::V1::TestsController < ApplicationController
   def show
     @test = Test.find(params[:id])
 
-    @test.chatgpt
+    @test.create_test(4, @test.max_score, @test.time, "Geography in Europe")
 
     render json: @test
   end
