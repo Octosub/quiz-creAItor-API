@@ -11,13 +11,15 @@ class Api::V1::TestsController < ApplicationController
   def show
     @test = Test.find(params[:id])
 
-    @test.create_test(4, "Geography in Europe")
-
     render json: @test
   end
 
   def create
-    @test = Test.new(test_params)
+    prompt = "Geography in Europe"
+
+    @test = Test.new
+    @test.create_test(4, prompt)
+
     if @test.save
       render json: @test, status: :created
     else

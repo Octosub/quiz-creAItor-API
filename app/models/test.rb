@@ -38,5 +38,7 @@ class Test < ApplicationRecord
     )
 
     self.challenges = response.dig("choices", 0, "message", "content")
+    self.max_score = number_of_challenges * 10
+    self.time = number_of_challenges * 40000
   end
 end
