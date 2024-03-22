@@ -15,6 +15,7 @@ class Api::V1::TestsController < ApplicationController
   end
 
   def create
+
   raw_body = request.body.read
   parsed_body = JSON.parse(raw_body)
   prompt = parsed_body['content']

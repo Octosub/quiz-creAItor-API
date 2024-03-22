@@ -33,7 +33,7 @@ class Test < ApplicationRecord
           }
           Dont put any '\' or '\n' in the json object. The json object should be in one line.
           "}],
-          temperature: 0.7,
+          temperature: 0.3,
       }
     )
 
