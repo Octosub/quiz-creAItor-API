@@ -15,7 +15,7 @@ class Api::V1::TestsController < ApplicationController
   end
 
   def create
-    prompt = "Geography in Europe"
+    prompt = "Coding test about react syntax"
 
     @test = Test.new
     @test.create_test(4, prompt)
