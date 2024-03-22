@@ -15,7 +15,11 @@ class Api::V1::TestsController < ApplicationController
   end
 
   def create
-    prompt = "Coding test about react syntax"
+
+  raw_body = request.body.read
+  parsed_body = JSON.parse(raw_body)
+  prompt = parsed_body['content']
+
 
     @test = Test.new
     @test.create_test(4, prompt)
