@@ -31,9 +31,8 @@ class Test < ApplicationRecord
             },
             'answer': '{generate answer 2}'
           }
-          Dont put any '\' or '\n' in the json object. The json object should be in one line.
           "}],
-          temperature: 0.3,
+          temperature: 0.1,
       }
     )
 

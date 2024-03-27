@@ -16,13 +16,27 @@ class Api::V1::TestsController < ApplicationController
 
   def create
 
-  raw_body = request.body.read
-  parsed_body = JSON.parse(raw_body)
-  prompt = parsed_body['content']
+    uploaded_file = params[:file]
+    file_path = Rails.root.join('public', 'uploads', uploaded_file.original_filename)
+
+    File.open(file_path, 'wb') do |file|
+      file.write(uploaded_file.read)
+    end
+
+    if File.exist?(file_path)
+      file = File.open(file_path, 'rb')
+      file_data = file.read
+      file.close
+    end
+
+    #raw_body = request.body.read
+    #parsed_body = JSON.parse(raw_body)
+    #prompt = parsed_body['content']
 
 
     @test = Test.new
-    @test.create_test(4, prompt)
+    @test.challenges = file_path.to_s
+    #@test.create_test(4, prompt)
 
     if @test.save
       render json: @test, status: :created
