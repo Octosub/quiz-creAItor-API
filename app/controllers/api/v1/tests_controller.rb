@@ -1,4 +1,5 @@
 require 'openai'
+require 'pdf-reader'
 
 class Api::V1::TestsController < ApplicationController
 
@@ -24,10 +25,13 @@ class Api::V1::TestsController < ApplicationController
     end
 
     if File.exist?(file_path)
-      file = File.open(file_path, 'rb')
-      file_data = file.read
-      file.close
+      reader = PDF::Reader.new(file_path)
+      text = ""
+      reader.pages.each do |page|
+        text << page.text
+      end
     end
+
 
     #raw_body = request.body.read
     #parsed_body = JSON.parse(raw_body)
@@ -35,8 +39,7 @@ class Api::V1::TestsController < ApplicationController
 
 
     @test = Test.new
-    @test.challenges = file_path.to_s
-    #@test.create_test(4, prompt)
+    @test.create_test(4, text)
 
     if @test.save
       render json: @test, status: :created

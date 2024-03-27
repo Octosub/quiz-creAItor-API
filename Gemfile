@@ -11,6 +11,9 @@ gem 'faker'
 #Byebug
 gem 'pry-rails'
 
+#PDFReader
+gem 'pdf-reader'
+
 gem 'dotenv'
 gem 'dotenv-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
