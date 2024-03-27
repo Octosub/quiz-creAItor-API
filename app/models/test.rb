@@ -22,7 +22,7 @@ class Test < ApplicationRecord
             'answer' : '{generate answer }'
           }
           "}],
-          temperature: 0.1,
+          temperature: 0.5,
       }
     )
 
