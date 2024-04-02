@@ -11,16 +11,17 @@ class Test < ApplicationRecord
           "
           Generate the following json object and fill out the curly braces with the instructions inside the curly braces. Take the following topic to generate the questions and answers '#{input}'. Create #{number_of_challenges} challenges with the following structure:
           {
-          'challenge': {
-            'question': '{generate question }',
+          'challenge1': {
+            'question': '{generate question 1}',
             'choices': {
-              'choice1': '{generate choice }',
-              'choice2': '{generate choice }',
-              'choice3': '{generate choice }',
-              'choice4': '{generate choice }'
+              'choice1': '{generate choice 1}',
+              'choice2': '{generate choice 2}',
+              'choice3': '{generate choice 3}',
+              'choice4': '{generate choice 4}'
             },
-            'answer' : '{generate answer }'
-          }
+            'answer' : '{generate answer 1}'
+          },
+          ...
           "}],
           temperature: 0.5,
       }

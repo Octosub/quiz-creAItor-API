@@ -32,14 +32,12 @@ class Api::V1::TestsController < ApplicationController
       end
     end
 
-
     #raw_body = request.body.read
     #parsed_body = JSON.parse(raw_body)
     #prompt = parsed_body['content']
 
-
     @test = Test.new
-    @test.create_test(4, text)
+    @test.create_test(10, text)
 
     if @test.save
       render json: @test, status: :created
