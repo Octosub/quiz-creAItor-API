@@ -1,4 +1,6 @@
 class Test < ApplicationRecord
+  self.table_name = "quizcr_tests"
+
 
   def create_test(number_of_challenges, input)
     client = OpenAI::Client.new
