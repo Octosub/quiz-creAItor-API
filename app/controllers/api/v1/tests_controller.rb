@@ -16,8 +16,8 @@ class Api::V1::TestsController < ApplicationController
   end
 
   def create
-
     uploaded_file = params[:file]
+    number_of_challenges = params[:number].to_i
     file_path = Rails.root.join('public', 'uploads', uploaded_file.original_filename)
 
     File.open(file_path, 'wb') do |file|
@@ -37,7 +37,7 @@ class Api::V1::TestsController < ApplicationController
     #prompt = parsed_body['content']
 
     @test = Test.new
-    @test.create_test(3, text)
+    @test.create_test(number_of_challenges, text)
 
     if @test.save
       render json: @test, status: :created
