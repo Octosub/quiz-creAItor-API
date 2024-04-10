@@ -37,7 +37,7 @@ class Api::V1::TestsController < ApplicationController
     #prompt = parsed_body['content']
 
     @test = Test.new
-    @test.create_test(10, text)
+    @test.create_test(3, text)
 
     if @test.save
       render json: @test, status: :created
